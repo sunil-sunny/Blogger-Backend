@@ -16,7 +16,7 @@ const registerUser = async (req, res) => {
             "result": "Success"
         })
     } catch (e) {
-        res.status(400).send(e)
+        res.status(400).json({"result":"Failed","Error":e})
     }
 };
 
@@ -29,7 +29,7 @@ const loginUser = async (req, res) => {
     } catch (e) {
         console.log(e)
         res.status(400).json({
-            "result": "failed",
+            "result": "Failed",
             "Error": e.message
         })
     }
