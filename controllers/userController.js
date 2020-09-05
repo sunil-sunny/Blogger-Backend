@@ -16,7 +16,7 @@ const registerUser = async (req, res) => {
             "result": "Success"
         })
     } catch (e) {
-        res.status(400).json({"result":"Failed","Error":e})
+        res.status(400).json({ "result": "Failed", "Error": e })
     }
 };
 
@@ -25,7 +25,7 @@ const loginUser = async (req, res) => {
 
         const user = await User.findByCredentials(req.body.email, req.body.password);
         const token = await user.getAuthToken()
-        res.status(200).send({ user, token })
+        res.status(200).json({ "result": "Success", "Email": user.email, token })
     } catch (e) {
         console.log(e)
         res.status(400).json({
